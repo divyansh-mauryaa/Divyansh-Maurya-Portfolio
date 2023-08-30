@@ -1,10 +1,11 @@
 import React from 'react'
-import { Nav, NavLink, NavbarContainer, Span, NavLogo, NavItems, GitHubButton, ButtonContainer, MobileIcon, MobileMenu, MobileNavLogo, MobileLink } from './NavbarStyledComponent'
+import { Nav, NavLink, FiverrButton, NavbarContainer, Span, NavLogo, NavItems, GitHubButton, ButtonContainer, MobileIcon, MobileMenu, MobileNavLogo, MobileLink } from './NavbarStyledComponent'
 import { DiUbuntu } from 'react-icons/di';
 import { FaBars } from 'react-icons/fa';
 import { Bio } from '../../data/constants';
-import { Close, CloseRounded } from '@mui/icons-material';
+import { GitHub } from '@mui/icons-material';
 import { useTheme } from 'styled-components';
+import { Button } from '@mui/material';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -28,7 +29,8 @@ const Navbar = () => {
           <NavLink href='#projects'>Projects</NavLink>
         </NavItems>
         <ButtonContainer>
-          <GitHubButton href={Bio.fiverr} target="_blank">Fiverr</GitHubButton>
+          <FiverrButton href={Bio.fiverr} color='green' target="_blank">Hire me</FiverrButton> &nbsp;
+          <GitHubButton href={Bio.github} target='_blank'><GitHub /> &nbsp; Github</GitHubButton>
         </ButtonContainer>
         {
           isOpen &&
@@ -42,7 +44,8 @@ const Navbar = () => {
             <MobileLink href='#projects' onClick={() => {
               setIsOpen(!isOpen)
             }}>Projects</MobileLink>
-            <GitHubButton style={{padding: '10px 16px',background: `${theme.primary}`, color: 'white',width: 'max-content'}} href={Bio.fiverr} target="_blank">Fiverr</GitHubButton>
+            <FiverrButton style={{padding: '10px 16px',background: `${theme.primary}`, color: 'white',width: 'max-content'}} href={Bio.fiverr} target="_blank">Hire me</FiverrButton>
+            <GitHubButton href={Bio.github} target='_blank'><GitHub /> &nbsp; Github</GitHubButton>
           </MobileMenu>
         }
       </NavbarContainer>
